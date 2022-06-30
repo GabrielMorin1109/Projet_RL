@@ -1,2 +1,2 @@
-# Projet_RL
-Code pour le projet de Reinforcement Learning
+# Reinforcement Learning (MAST679W) course project.
+The assignment had been done with Jacob Chenette and Julien St-Pierre.
