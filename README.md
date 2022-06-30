@@ -1,4 +1,4 @@
-# Reinforcement Learning (MAST679W) course project.
+# Reinforcement Learning (MAST679W) course project
 The assignment had been done with Jacob Chenette (UQAM) and Julien St-Pierre (McGill).
 
 ### Introduction : 
