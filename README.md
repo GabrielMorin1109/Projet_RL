@@ -1,5 +1,5 @@
 # Reinforcement Learning (MAST679W) course project.
-The assignment had been done with Jacob Chenette and Julien St-Pierre.
+The assignment had been done with Jacob Chenette (UQAM) and Julien St-Pierre (McGill).
 
 ### Introduction : 
 The objective of this project was to conduct reinforcement learning in order to find the solution of a small
