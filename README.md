@@ -10,3 +10,8 @@ and one dynamic programming method. Off-policy learning means learning the value
 policy while following another policy. Therefore, we simulated episodes using a simple fixed policy and
 compare how the following methods performed for this particular problem: Generalized Policy Iteration
 (GPI), Q-learning, n-step off-policy SARSA and Tree Backup.
+
+### Code Structure: 
+In order to run the script, go to the folder with your therminal and type
+
+<img src="https://github.com/GabrielMorin1109/Reinforcement-Learning-Assignment/blob/main/Results/code_structure.png?raw=true" width="600">
