@@ -173,10 +173,12 @@ ggplot(filter(df_RMSE, Episode%in%c(0:100)),aes(x=Episode, y=RMSE, group=epsilon
     plot.title = element_text(hjust = 0.5)
   )
 
-ggsave("Results/SARSA_RMSE_1.pdf",
-       plot = last_plot(),
-       device = 'pdf'
-)
+if(!file.exists("Results/SARSA_RMSE_1.pdf")){
+  ggplot2::ggsave("Results/SARSA_RMSE_1.pdf",
+         plot = last_plot(),
+         device = 'pdf'
+  )
+}
 
 ggplot(filter(df_RMSE, Episode%in%c(300:400)),aes(x=Episode, y=RMSE, group=epsilon, color=epsilon))+
   geom_line()+
@@ -186,11 +188,13 @@ ggplot(filter(df_RMSE, Episode%in%c(300:400)),aes(x=Episode, y=RMSE, group=epsil
     panel.background = element_rect(fill=alpha("grey",0.05)),
     plot.title = element_text(hjust = 0.5)
   )
+if(!file.exists("Results/SARSA_RMSE_2.pdf")){
+  ggplot2::ggsave("Results/SARSA_RMSE_2.pdf",
+                  plot = last_plot(),
+                  device = 'pdf'
+  )
+}
 
-ggsave("Results/SARSA_RMSE_2.pdf",
-       plot = last_plot(),
-       device = 'pdf'
-)
 #----------------------------------------------------
 # Number of iterations before Optimal Policy is found
 #----------------------------------------------------
@@ -207,7 +211,10 @@ ggplot(filter(df_Nstate, Episode%in%c(0:nepis)),aes(x=Episode, y=Nstate, group=e
     plot.title = element_text(hjust = 0.5)
   )
 
-ggsave("Results/SARSA_Nstate.pdf",
-       plot = last_plot(),
-       device = 'pdf'
-)
+if(!file.exists("Results/SARSA_Nstate.pdf")){
+  ggsave("Results/SARSA_Nstate.pdf",
+         plot = last_plot(),
+         device = 'pdf'
+  )
+}
+

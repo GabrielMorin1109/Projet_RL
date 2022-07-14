@@ -68,7 +68,7 @@ for(i in 1:nrow(SASRp)){
 }
 #-----------------------------------------------------------------
 #OUTPUT : 
-View(SASRp)
+SASRp
 #-----------------------------------------------------------------
 
 #-----------------------------------------------------------------
@@ -217,11 +217,12 @@ optimal_path <- optimal_path[-nrow(optimal_path),]
 optimal_path <- matrix(optimal_path,ncol=1)
 rownames(optimal_path) <- unique(SASRp[,1])
 print(optimal_path)
-optimal_path
 
 #FIGURES
 library(ggplot2)
-ggplot(data = data_GPI, aes(x = data_GPI[,1])) +
+
+# RMSE plot
+RMSE_GPI <- ggplot(data = data_GPI, aes(x = data_GPI[,1])) +
   geom_line(aes(y = n1, colour = "1")) +
   geom_line(aes(y = n2, colour = "2")) +
   geom_line(aes(y = n5, colour = "5")) +
@@ -233,7 +234,12 @@ ggplot(data = data_GPI, aes(x = data_GPI[,1])) +
   scale_y_continuous("RSSE", limits = range(data_GPI[,2:5]))+
   theme(panel.background = element_rect(fill=alpha("grey",0.05)))
 
-ggplot(data = data_GPI, aes(x = data_GPI[,1])) +
+if(!file.exists("Results/RMSE GPI.png")){
+  ggsave(RMSE_GPI,filename = "Results/RMSE GPI.png")
+}
+
+# Convergence plot
+convergence_GPI <- ggplot(data = data_GPI, aes(x = data_GPI[,1])) +
   geom_line(aes(y = m1, colour = "1")) +
   geom_line(aes(y = m2, colour = "2")) +
   geom_line(aes(y = m5, colour = "5")) +
@@ -245,3 +251,6 @@ ggplot(data = data_GPI, aes(x = data_GPI[,1])) +
   scale_y_continuous("Number of states", limits =c(0,75))+
   theme(panel.background = element_rect(fill=alpha("grey",0.05)))
 
+if(!file.exists("Results/convergence GPI.png")){
+  ggsave(convergence_GPI,"Results/convergence GPI.png")
+}

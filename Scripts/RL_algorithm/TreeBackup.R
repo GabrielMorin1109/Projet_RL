@@ -166,11 +166,12 @@ ggplot(filter(df_RMSE, Episode%in%c(0:50)),aes(x=Episode, y=RMSE, group=alpha, c
     panel.background = element_rect(fill=alpha("grey",0.05)),
     plot.title = element_text(hjust = 0.5)
   )
-
-ggsave("Results/Treebackup_RMSE_1.pdf",
-       plot = last_plot(),
-       device = 'pdf'
-)
+if(!file.exists("Results/Treebackup_RMSE_1.pdf")){
+  ggplot2::ggsave("Results/Treebackup_RMSE_1.pdf",
+         plot = last_plot(),
+         device = 'pdf'
+  )
+}
 
 ggplot(filter(df_RMSE, Episode%in%c(150:200)),aes(x=Episode, y=RMSE, group=alpha, color=alpha))+
   geom_line()+
@@ -180,11 +181,13 @@ ggplot(filter(df_RMSE, Episode%in%c(150:200)),aes(x=Episode, y=RMSE, group=alpha
     panel.background = element_rect(fill=alpha("grey",0.05)),
     plot.title = element_text(hjust = 0.5)
   )
+if(!file.exists("Results/Treebackup_RMSE_2.pdf")){
+  ggplot2::ggsave("Results/Treebackup_RMSE_2.pdf",
+                  plot = last_plot(),
+                  device = 'pdf'
+  )
+}
 
-ggsave("Results/Treebackup_RMSE_2.pdf",
-       plot = last_plot(),
-       device = 'pdf'
-       )
 
 #----------------------------------------------------
 # Number of iterations before Optimal Policy is found
@@ -202,7 +205,10 @@ ggplot(filter(df_Nstate, Episode%in%c(0:200)),aes(x=Episode, y=Nstate, group=alp
     plot.title = element_text(hjust = 0.5)
   )
 
-ggsave("Results/Treebackup_Nstate.pdf",
-       plot = last_plot(),
-       device = 'pdf'
-)
+if(!file.exists("Results/Treebackup_Nstate.pdf")){
+  ggplot2::ggsave("Results/Treebackup_Nstate.pdf",
+                  plot = last_plot(),
+                  device = 'pdf'
+  )
+}
+

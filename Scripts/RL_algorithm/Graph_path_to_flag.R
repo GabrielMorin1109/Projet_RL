@@ -84,8 +84,9 @@ colnames(SASRp) <- c("s","a","s'","r","t")
           axis.text.y=element_blank(),
           axis.ticks.y=element_blank()
     );g.maze
-  
-  ggsave(g.maze,filename = "Results/optimal_path.png")
+  if(!file.exists("Results/optimal_path.png")){
+    ggplot2::ggsave(g.maze,filename = "Results/optimal_path.png")
+  }
   
   # plot of the whole board 
   g.board <- ggplot(data = trajectory.index) +
@@ -102,7 +103,10 @@ colnames(SASRp) <- c("s","a","s'","r","t")
           axis.text.y=element_blank(),
           axis.ticks.y=element_blank()
     );g.board
-  ggsave(g.board,filename = "Results/board.png")
+  
+  if(!file.exists("Results/board.png")){
+    ggplot2::ggsave(g.board,filename = "Results/board.png")
+  }
 }
 
 

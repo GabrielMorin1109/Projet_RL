@@ -1,4 +1,4 @@
-# loading data
+# Loading data
 maze <- as.matrix(read.csv("Data/maze_2.csv", header = F))
 
 # loading the function that will simulate episodes

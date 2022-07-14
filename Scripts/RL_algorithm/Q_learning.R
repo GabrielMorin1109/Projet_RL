@@ -86,9 +86,7 @@ ep_0.90 <- ApplyQLearning(stepsize = 0.90,initQestim,DF,nepis,state,prob,rewards
 data_QL <- data.frame(x=1:100,a1=ep_0.05[[1]][1:100],a2=ep_0.25[[1]],a3=ep_0.50[[1]],a4=ep_0.90[[1]],e1=ep_0.05[[4]][1:100],e2=ep_0.25[[4]],e3=ep_0.50[[4]],e4=ep_0.90[[4]])
 library(ggplot2)
 
-
-
-ggplot(data = data_QL, aes(x = data_QL[,1])) +
+RMSE_Q_L <- ggplot(data = data_QL, aes(x = data_QL[,1])) +
   geom_line(aes(y = a1, colour = "0.05")) +
   geom_line(aes(y = a2, colour = "0.25")) +
   geom_line(aes(y = a3, colour = "0.50")) +
@@ -100,7 +98,11 @@ ggplot(data = data_QL, aes(x = data_QL[,1])) +
   scale_y_continuous("RSSE", limits = range(data_QL[,2:5]))+
   theme(panel.background = element_rect(fill=alpha("grey",0.05)))
 
-ggplot(data = data_QL, aes(x = data_QL[,1])) +
+if(!file.exists("Results/RMSE Q_L.png")){
+  ggplot2::ggsave(RMSE_Q_L, "Results/RMSE Q_L.png")
+}
+
+Convergence_Q_L <- ggplot(data = data_QL, aes(x = data_QL[,1])) +
   geom_line(aes(y = e1, colour = "0.05")) +
   geom_line(aes(y = e2, colour = "0.25")) +
   geom_line(aes(y = e3, colour = "0.50")) +
@@ -112,7 +114,7 @@ ggplot(data = data_QL, aes(x = data_QL[,1])) +
   scale_y_continuous("Number of states", limits = range(data_QL[,6:9]))+
   theme(panel.background = element_rect(fill=alpha("grey",0.05)))
 
-
-
-
+if(!file.exists("Results/Convergence Q_L.png")){
+  ggplot2::ggsave(Convergence_Q_L, "Results/Convergence Q_L.png")
+}
 

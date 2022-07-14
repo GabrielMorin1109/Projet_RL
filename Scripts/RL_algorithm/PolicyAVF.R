@@ -64,7 +64,7 @@ for(i in 1:nrow(SASRp)){
   
 }
 
-View(SASRp)
+SASRp
 
 #---------------------------------------------------
 # Calulate Policy Value Function
