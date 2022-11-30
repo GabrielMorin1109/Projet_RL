@@ -12,6 +12,4 @@ compare how the following methods performed for this particular problem: General
 (GPI), Q-learning, n-step off-policy SARSA and Tree Backup.
 
 ### Code Structure: 
-In order to run the script, go to the folder with your therminal and type
-
 <img src="https://github.com/GabrielMorin1109/Reinforcement-Learning-Assignment/blob/main/Results/code_structure.png?raw=true" width="600">
